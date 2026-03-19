@@ -1,0 +1,40 @@
+name: sdk-release-gates
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'packages/sdk/**'
+      - '.github/workflows/sdk-release-gates.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'packages/sdk/**'
+      - '.github/workflows/sdk-release-gates.yml'
+
+jobs:
+  sdk-gates:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/sdk
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: packages/sdk/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build and test
+        run: npm run test:ci
+
+      - name: Verify pack artifacts
+        run: npm pack --dry-run

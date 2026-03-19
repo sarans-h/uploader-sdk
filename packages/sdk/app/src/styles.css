@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+  font-family: Segoe UI, sans-serif;
+  background: #f5f6f8;
+}
+
+.container {
+  max-width: 960px;
+  margin: 24px auto;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #ddd;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.log {
+  border: 1px solid #ddd;
+  min-height: 100px;
+  padding: 8px;
+  white-space: pre-wrap;
+  background: #fafafa;
+}
+
+.file-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 8px;
+}
+
+.status {
+  font-weight: 600;
+  margin: 0 8px;
+}
+
+button {
+  padding: 6px 10px;
+}

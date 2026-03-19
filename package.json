@@ -1,0 +1,6 @@
+{
+  "name": "file-upload-monorepo",
+  "private": true,
+  "workspaces": ["packages/*"],
+  "version": "1.0.0"
+}
