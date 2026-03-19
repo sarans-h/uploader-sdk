@@ -67,4 +67,5 @@ jobs:
 
       - name: Publish summary
         if: steps.version_check.outputs.exists == 'true'
-        run: echo "No publish: ${{ steps.version_check.outputs.name }}@${{ steps.version_check.outputs.version }} already exists."
+        run: |
+          echo "No publish: ${{ steps.version_check.outputs.name }}@${{ steps.version_check.outputs.version }} already exists."
